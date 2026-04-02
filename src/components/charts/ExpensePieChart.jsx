@@ -49,7 +49,7 @@ function CustomLabel({ cx, cy, midAngle, innerRadius, outerRadius, percent }) {
       fill="white"
       textAnchor="middle"
       dominantBaseline="central"
-      fontSize={11}
+      fontSize={12}
       fontWeight={600}
     >
       {`${(percent * 100).toFixed(0)}%`}
@@ -86,8 +86,8 @@ export default function ExpensePieChart({ data }) {
               nameKey="category"
               cx="50%"
               cy="50%"
-              outerRadius="72%"
-              innerRadius="44%"
+              outerRadius="80%"
+              innerRadius="50%"
               paddingAngle={3}
               labelLine={false}
               label={<CustomLabel />}
@@ -106,17 +106,17 @@ export default function ExpensePieChart({ data }) {
       </div>
 
       {/* Legend */}
-      <div className="shrink-0 grid grid-cols-2 gap-x-4 gap-y-2 pt-3 border-t border-black/8 dark:border-white/5">
+      <div className="shrink-0 grid grid-cols-2 gap-x-4 gap-y-2.5 pt-3 border-t border-black/8 dark:border-white/5">
         {enriched.map((entry, index) => (
           <div key={entry.category} className="flex items-center gap-2 min-w-0">
             <span
-              className="shrink-0 h-2.5 w-2.5 rounded-full"
+              className="shrink-0 h-3 w-3 rounded-full"
               style={{ backgroundColor: COLORS[index % COLORS.length] }}
             />
             <span className="text-xs text-gray-600 dark:text-gray-400 truncate">
               {entry.category}
             </span>
-            <span className="text-xs text-gray-400 dark:text-gray-600 ml-auto shrink-0">
+            <span className="text-xs font-medium text-gray-500 dark:text-gray-400 ml-auto shrink-0">
               {entry._pct}%
             </span>
           </div>

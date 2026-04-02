@@ -21,12 +21,12 @@ const fadeUp = {
 function RecentTransactions({ transactions }) {
   const recent = [...transactions]
     .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 3);
+    .slice(0, 2);
 
   return (
     <motion.div
       variants={fadeUp}
-      className="rounded-2xl border border-black/8 dark:border-white/10 bg-white dark:bg-[#0f1623] p-4 flex flex-col gap-3"
+      className="rounded-2xl border border-black/8 dark:border-white/10 bg-white dark:bg-[#0f1623] p-3 flex flex-col gap-2"
     >
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-400">
@@ -85,12 +85,12 @@ export default function DashboardPage() {
   const expensesByCategory = computeExpensesByCategory(transactions);
 
   return (
-    <div className="flex flex-col p-4 sm:p-6 gap-4 overflow-y-auto xl:h-full xl:overflow-hidden">
+    <div className="flex flex-col p-3 sm:p-4 gap-3">
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 gap-3 sm:grid-cols-3 shrink-0"
+        className="grid grid-cols-1 gap-3 sm:grid-cols-3"
       >
         <SummaryCard
           label="Total Balance"
@@ -116,17 +116,17 @@ export default function DashboardPage() {
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="flex flex-col xl:flex-row gap-4 xl:flex-1 xl:min-h-0"
+        className="flex flex-col xl:flex-row gap-3"
       >
-        <div className="flex flex-col gap-4 xl:flex-1 xl:min-h-0">
+        <div className="flex flex-col gap-3 xl:flex-1">
           <motion.div
             variants={fadeUp}
-            className="rounded-2xl border border-black/8 dark:border-white/10 bg-white dark:bg-[#0f1623] p-5 flex flex-col xl:flex-1 xl:min-h-0"
+            className="rounded-2xl border border-black/8 dark:border-white/10 bg-white dark:bg-[#0f1623] p-4 flex flex-col"
           >
-            <h2 className="mb-3 text-sm font-semibold text-gray-700 dark:text-gray-400 shrink-0">
+            <h2 className="mb-2 text-sm font-semibold text-gray-700 dark:text-gray-400 shrink-0">
               Balance Trend
             </h2>
-            <div className="h-56 xl:flex-1 xl:h-auto xl:min-h-0">
+            <div className="h-[220px]">
               <BalanceTrendChart data={monthlyBalance} />
             </div>
           </motion.div>
@@ -135,12 +135,12 @@ export default function DashboardPage() {
 
         <motion.div
           variants={fadeUp}
-          className="rounded-2xl border border-black/8 dark:border-white/10 bg-white dark:bg-[#0f1623] p-5 flex flex-col xl:w-[42%] xl:shrink-0 xl:min-h-0"
+          className="rounded-2xl border border-black/8 dark:border-white/10 bg-white dark:bg-[#0f1623] p-4 flex flex-col xl:w-[42%] xl:shrink-0 xl:self-stretch"
         >
-          <h2 className="mb-3 text-sm font-semibold text-gray-700 dark:text-gray-400 shrink-0">
+          <h2 className="mb-2 text-sm font-semibold text-gray-700 dark:text-gray-400 shrink-0">
             Expenses by Category
           </h2>
-          <div className="h-72 xl:flex-1 xl:h-auto xl:min-h-0">
+          <div className="flex-1 min-h-[320px]">
             <ExpensePieChart data={expensesByCategory} />
           </div>
         </motion.div>
