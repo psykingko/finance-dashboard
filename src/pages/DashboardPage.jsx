@@ -140,7 +140,7 @@ export default function DashboardPage() {
           <h2 className="mb-2 text-sm font-semibold text-gray-700 dark:text-gray-400 shrink-0">
             Expenses by Category
           </h2>
-          <div className="flex-1 min-h-[320px]">
+          <div className="h-[320px] xl:flex-1 xl:h-auto xl:min-h-[320px]">
             <ExpensePieChart data={expensesByCategory} />
           </div>
         </motion.div>
